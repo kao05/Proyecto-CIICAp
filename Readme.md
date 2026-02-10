@@ -6,13 +6,15 @@
 - Postgresql 
 - Docker
 - Fast API LTS 
-- Rest websocket
-- Django 
-- Python <- BeautifulSoup (para leer la información que se rasco de la página)
+- Rest or websocket
+- Python
 
 ## Models
 - https://huggingface.co/PlanTL-GOB-ES/roberta-base-bne
 - https://huggingface.co/dccuchile/bert-base-spanish-wwm-cased
+
+## Librerias
+- BeautifulSoup
 
 ## Herramientas
 - Web Scraping
