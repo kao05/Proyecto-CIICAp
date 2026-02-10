@@ -10,8 +10,12 @@
 - Python
 
 ## Models
+### LLM's
+- 
+### Transformers
 - https://huggingface.co/PlanTL-GOB-ES/roberta-base-bne
 - https://huggingface.co/dccuchile/bert-base-spanish-wwm-cased
+  
 
 ## Librerias
 - BeautifulSoup
