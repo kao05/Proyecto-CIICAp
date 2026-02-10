@@ -10,6 +10,10 @@
 - Django 
 - Python <- BeautifulSoup (para leer la información que se rasco de la página)
 
+## Models
+- https://huggingface.co/PlanTL-GOB-ES/roberta-base-bne
+- https://huggingface.co/dccuchile/bert-base-spanish-wwm-cased
+
 ## Herramientas
 - Web Scraping
   - https://www.youtube.com/watch?v=bK3EwIMHm94
