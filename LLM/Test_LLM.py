@@ -18,7 +18,7 @@ Si se tiene GPU NVIDIA: pip install transformers torch accelerate huggingface_hu
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-tokenKevin = "lol"
+
 print("Cargando el modelo...")
 model_name = "meta-llama/Llama-3.2-3B-Instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_name, token=tokenKevin)

@@ -1,9 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
-# Tu token
-HF_TOKEN = ""
-
+# 
 # Cargar modelo
 print("Cargando Llama 3.2-3B-Instruct...")
 model_name = "meta-llama/Llama-3.2-3B-Instruct"
