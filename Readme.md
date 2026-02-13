@@ -31,3 +31,8 @@
   - Qué es?
     - https://www.youtube.com/watch?v=esQ4LMVdbaA&t=210s
     - https://www.youtube.com/watch?v=5Y3a61o0jFQ
+
+## Preguntas para reconocer cual modelo es mejor:
+1. Estas optimizado para tener interacciones en español?
+2. Te consideras apto para responder preguntas de caracter escolar como si se te tratara como una administrador de la pagina?
+3. 
