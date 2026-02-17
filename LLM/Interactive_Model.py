@@ -15,7 +15,7 @@ Gemma3ForConditionalGeneration: Es el modelo en sí mismo, el cerebro del chatbo
 Se llama "condicional" porque no genera texto al azar, sino que lo genera basándose en la pregunta o contexto que recibe.
 """
 
-
+load_dotenv()
 
 #Configuration
 model_name = "google/gemma-3-4b-it"
@@ -27,7 +27,7 @@ login(token=token)
 print("Cargando el modelo...")
 model = Gemma3ForConditionalGeneration.from_pretrained(
     model_name,
-    device_map="cuda",  # Asignar automáticamente a GPU/CPU
+    device_map="auto",  # Asignar automáticamente a GPU/CPU
     torch_dtype=torch.float16,  # Usar half precision
     token=token
 ).eval()  # Poner el modelo en modo evaluación
