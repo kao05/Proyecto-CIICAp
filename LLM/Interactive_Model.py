@@ -3,30 +3,36 @@ First for use this model you need to install the following:
 1. pip install -U transformers torch accelerate Pillow
 2. verify have the version of transformers >= 4.50.0
 """
+
+from dotenv import load_dotenv
+import os
+import torch
+from huggingface_hub import login
 from transformers import AutoProcessor, Gemma3ForConditionalGeneration
 """
 autoProcessor: Es una clase que se encarga de preprocesar,el encargado de preparar la información ANTES de que el modelo la reciba.
 Gemma3ForConditionalGeneration: Es el modelo en sí mismo, el cerebro del chatbot.
 Se llama "condicional" porque no genera texto al azar, sino que lo genera basándose en la pregunta o contexto que recibe.
 """
-import torch
+
+
+
 #Configuration
 model_name = "google/gemma-3-4b-it"
-Token = ""
+token = os.getenv("HG_TOKEN")
 limit_tokens_model = 256
 limit_conversacion = 20
-
+login(token=token)
 #charging the model
 print("Cargando el modelo...")
-
 model = Gemma3ForConditionalGeneration.from_pretrained(
     model_name,
-    device_map="auto",  # Asignar automáticamente a GPU/CPU
+    device_map="cuda",  # Asignar automáticamente a GPU/CPU
     torch_dtype=torch.float16,  # Usar half precision
-    token=Token
+    token=token
 ).eval()  # Poner el modelo en modo evaluación
 
-processor = AutoProcessor.from_pretrained(model_name, token=Token)
+processor = AutoProcessor.from_pretrained(model_name, token=token)
 print("Modelo cargado exitosamente.")
 #Diccionario para salir del bucle
 Token_salida = ["adios", "adiós", "para", "hemos terminado", "stop", "salir"]
