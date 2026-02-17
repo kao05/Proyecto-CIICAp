@@ -6,7 +6,12 @@ Asistente virtual para la página institucional del CIICAp, diseñado para facil
 - Docker
 - Fast API LTS 
 - REST
-- Python
+- Python 3.11
+### ¿Por qué Python 3.11?
+Compatibilidad total con todas las librerías: transformers, torch, fastapi, redis, psycopg2, bitsandbytes y accelerate tienen soporte completamente estable en 3.11.
+Rendimiento es hasta un 25% más rápido que 3.10 en operaciones generales, y tiene mejor soporte de PyTorch en Windows.
+Google Colab actualmente corre Python 3.11 como versión por defecto, lo que significa que si desarrollas en 3.11 local, el código correrá igual en Colab sin problemas.
+
 
 - 
 ### Transformers
