@@ -1,15 +1,13 @@
 # Proyecto Chatbot CIICAp — LLM + RAG 🤖
-
+Asistente virtual para la página institucional del CIICAp, diseñado para facilitar la búsqueda de información a estudiantes y visitantes mediante inteligencia artificial.
 
 ## Stack de Tecnologías 
 - Postgresql 
 - Docker
 - Fast API LTS 
-- Rest or websocket
+- REST
 - Python
 
-## Models
-### LLM's
 - 
 ### Transformers
 - https://huggingface.co/PlanTL-GOB-ES/roberta-base-bne
@@ -31,21 +29,7 @@
     - https://www.youtube.com/watch?v=esQ4LMVdbaA&t=210s
     - https://www.youtube.com/watch?v=5Y3a61o0jFQ
 
-## Preguntas para reconocer cual modelo es mejor:
-Hola LLM, a través de este chat te haré pruebas en el idioma español para saber si eres apto para que tu modelo sea utilizado en un proyecto escolar que tengo, estas listo para comenzar?
 
-Okey, principalmente tu modelo se esta pensado para que interactúen estudiantes contigo de manera que funjas como un intermediario para responder preguntas hacer de información escolar que te daré después, entonces no creo que sea tan radical la interacción para algo regional o de jerga pero de igual manera se hará reentrenamiento entonces no creo tener ningún problema
-
-
-
-
-1. Estas optimizado para tener interacciones en español?
-2. Te consideras apto para responder preguntas de caracter escolar como si se te tratara como una administrador de la pagina?
-3. Que tan bueno eres interactuando con estudiantes?
-4. Podrias decirme como devolverias la informacion solicitada si te pidiera analizar un sitio de horarios de la Universidad
-5. Segun tu, tu modelo es optimizado para trabajar con RAG?
-
-ya por ultimo te quisiera preguntar como si se tratara de una entrevista de trabajo, porque debería escoger tu modelo por encima de los otros, como te venderías para tomar mi decisión
 
 
 ## Porqué se ha elegido Gemma 3 4B
