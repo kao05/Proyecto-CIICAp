@@ -3,7 +3,7 @@ First for use this model you need to install the following:
 1. pip install -U transformers torch accelerate Pillow
 2. verify have the version of transformers >= 4.50.0
 """
-from transformers import autoProcessor, Gemma3ForConditionalGeneration
+from transformers import AutoProcessor, Gemma3ForConditionalGeneration
 """
 autoProcessor: Es una clase que se encarga de preprocesar,el encargado de preparar la información ANTES de que el modelo la reciba.
 Gemma3ForConditionalGeneration: Es el modelo en sí mismo, el cerebro del chatbot.
@@ -26,7 +26,7 @@ model = Gemma3ForConditionalGeneration.from_pretrained(
     token=Token
 ).eval()  # Poner el modelo en modo evaluación
 
-processor = autoProcessor.from_pretrained(model_name, token=Token)
+processor = AutoProcessor.from_pretrained(model_name, token=Token)
 print("Modelo cargado exitosamente.")
 #Diccionario para salir del bucle
 Token_salida = ["adios", "adiós", "para", "hemos terminado", "stop", "salir"]
@@ -81,7 +81,6 @@ while True:
     # Procesar y generar respuesta
     inputs = processor.apply_chat_template( 
         messages, 
-        tokenize=False, #No tokenizar aquí, lo haremos después
         add_generation_prompt=True, #Agregar un prompt para que el modelo sepa que debe generar una respuesta
         tokenize=True,
         return_dict=True, #Devolver un diccionario con los tensores necesarios para la generación
@@ -97,8 +96,9 @@ while True:
             top_p=0.9, #Usar top-p sampling para mejorar la diversidad de las respuestas
             do_sample=True, #Habilitar el muestreo para generar respuestas más variadas
         )
-        generation = generation[0] [inputs_len:] #Obtener solo la parte generada (excluyendo los tokens de entrada)
+        generation = outputs[0] [inputs_len:] #Obtener solo los tokens generados por el modelo, excluyendo los tokens de entrada
     respuesta = processor.decode(generation, skip_special_tokens=True).strip() #Decodificar la respuesta generada y eliminar espacios al inicio y al final
+    
     print(f"Asistente: {respuesta}\n") #Imprimir la respuesta del asistente
     # Actualizar el historial de la conversación 
     historial.append({ #Agregar la pregunta y la respuesta al historial

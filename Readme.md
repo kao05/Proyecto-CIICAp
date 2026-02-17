@@ -1,6 +1,5 @@
-# Proyecto Chatbot que interactue con la página principal del CIICAp 
-## Historia de Usuario
-- Este proyecto esta diseñado debido a la necesidad que surge de los usuarios que visitan la página web de la institución CIICAp, debido al gran tamaño de informacion que alberga esta, se vuelve tedioso y complicado el encontrar de manera rápida la información que se busca, es por ello que a traves de las herramientas que nos ofrece la Inteligencia Artificial se busca eficientizar los procesos de busqueda de información que tiene esta página mediante un chatbot el cual funja para recibir las dudas o preguntas que hay por parte de los estudiantes o visitantes y devolver las respuestas que existen dentro de la base de datos de la página 
+# Proyecto Chatbot CIICAp — LLM + RAG 🤖
+
 
 ## Stack de Tecnologías 
 - Postgresql 
