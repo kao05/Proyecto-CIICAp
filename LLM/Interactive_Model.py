@@ -26,7 +26,7 @@ login(token=token)
 
 
 #charging the model
-print("Cargando el modelo...")
+print("Cargando el modelo..")
 
 # Detectar dispositivo y tipo de dato compatible
 if torch.cuda.is_available():
