@@ -15,7 +15,7 @@ Gemma3ForConditionalGeneration: Es el modelo en sí mismo, el cerebro del chatbo
 Se llama "condicional" porque no genera texto al azar, sino que lo genera basándose en la pregunta o contexto que recibe.
 """
 
-load_dotenv()
+load_dotenv() #Para cargar las variables de entorno del archivo .env
 
 #Configuration
 model_name = "google/gemma-3-4b-it"
@@ -23,14 +23,27 @@ token = os.getenv("HG_TOKEN")
 limit_tokens_model = 256
 limit_conversacion = 20
 login(token=token)
+
+
 #charging the model
-print("Cargando el modelo...")
+print("Cargando el modelo..")
+
+# Detectar dispositivo y tipo de dato compatible
+if torch.cuda.is_available():
+    device = "cuda"
+    tipo_dato = torch.float16 # Rapidez para GPU
+else:
+    device = "cpu"
+    tipo_dato = torch.float32 # Estabilidad para CPU (evita NaNs)
+
+# Cargar el modelo con la configuración detectada
 model = Gemma3ForConditionalGeneration.from_pretrained(
     model_name,
-    device_map="auto",  # Asignar automáticamente a GPU/CPU
-    torch_dtype=torch.float16,  # Usar half precision
+    device_map=device, 
+    torch_dtype=tipo_dato, # <--- Usar float32 en CPU evita el error de probabilidad
     token=token
-).eval()  # Poner el modelo en modo evaluación
+).eval()
+
 
 processor = AutoProcessor.from_pretrained(model_name, token=token)
 print("Modelo cargado exitosamente.")
@@ -91,7 +104,8 @@ while True:
         tokenize=True,
         return_dict=True, #Devolver un diccionario con los tensores necesarios para la generación
         return_tensors="pt" #Devolver tensores en formato PyTorch
-    ).to(model.device,dtype=torch.bfloat16) #Mover los tensores al mismo dispositivo que el modelo (GPU o CPU)
+    ).to(model.device,dtype=tipo_dato) #Mover los tensores al mismo dispositivo que el modelo (GPU o CPU)
+    
     inputs_len = inputs["input_ids"].shape[1] #Obtener la longitud de los tokens de entrada
 
     with torch.inference_mode(): #Desactivar el cálculo de gradientes para ahorrar memoria y acelerar la generación
@@ -117,4 +131,4 @@ while True:
     })
     # Limitar el historial a las últimas 20 entradas (10 intercambios)
     if len(historial) > limit_conversacion:
-        historial = historial[-limit_conversacion:] #Mantener solo las últimas 20 entradas para no sobrecargar el modelo con demasiada información histórica
+        historial = historial[-limit_conversacion:] #Mantener solo las últimas 20 entradas para no sobrecargar el modelo con demasiada información  
