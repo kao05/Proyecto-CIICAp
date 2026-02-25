@@ -131,4 +131,4 @@ while True:
     })
     # Limitar el historial a las últimas 20 entradas (10 intercambios)
     if len(historial) > limit_conversacion:
-        historial = historial[-limit_conversacion:] #Mantener solo las últimas 20 entradas para no sobrecargar el modelo con demasiada información histórica
+        historial = historial[-limit_conversacion:] #Mantener solo las últimas 20 entradas para no sobrecargar el modelo con demasiada información  
