@@ -152,10 +152,11 @@
 ### Actividades realizadas
 
 1. **Script sin errores:** Se presento un script sin errores para poder interactuar con el modelo, el cual mantenia problemas por el tipo de dato que devolvia segun lo que se utilizara CPU o GPU.
-2. **Entorno Virtual:** Por el proyecto se asentaron las bases de conocimiento en los entornos virtualizados en PC, gracias a ello ahora podemos aislar las versiones de las librerias dependiendo del uso que queramos aprovechar de estas haciendo que se mantengan aisladas, evitando conflictos con el sistema global y facilitando la portabilidad.
-3. **Encriptaciones:** Debido que para mantener la seguridad de los tokens GitHub no te permite subir contraseñas como actualizacion del codigo, es por ello que se crea el .env para ahí colocar todo de manera que el codigo pueda buscar la informacion que necesita sin necesidad que este en este.
-4. **Políticas de Exclusión en Repositorio:** Configuración exhaustiva del archivo .gitignore para omitir archivos redundantes o sensibles, tales como el entorno virtual (venv/), archivos de caché (__pycache__/) y el archivo de configuración .env.
-5. **Código más limpio:** Adopción del estándar `snake_case` para el nombramiento de variables y funciones (ej. limit_tokens_model, tipo_dato), mejorando la legibilidad y el formalismo siguiendo las guías de estilo de Python (PEP 8).
+2. **Normalización de Inferencia (Hardware Agnostic):** Se depuró el script Interactive_Model.py para detectar automáticamente el hardware disponible. Se implementó una lógica de tipos de datos donde se asigna float16 para GPU (CUDA) para mayor rapidez y float32 para CPU para evitar errores de precisión o valores nulos (NaNs).
+3. **Entorno Virtual:** Por el proyecto se asentaron las bases de conocimiento en los entornos virtualizados en PC, gracias a ello ahora podemos aislar las versiones de las librerias dependiendo del uso que queramos aprovechar de estas haciendo que se mantengan aisladas, evitando conflictos con el sistema global y facilitando la portabilidad.
+4. **Encriptaciones:** Debido que para mantener la seguridad de los tokens GitHub no te permite subir contraseñas como actualizacion del codigo, es por ello que se crea el .env para ahí colocar todo de manera que el codigo pueda buscar la informacion que necesita sin necesidad que este en este.
+5. **Políticas de Exclusión en Repositorio:** Configuración exhaustiva del archivo .gitignore para omitir archivos redundantes o sensibles, tales como el entorno virtual (venv/), archivos de caché (__pycache__/) y el archivo de configuración .env.
+6. **Código más limpio:** Adopción del estándar `snake_case` para el nombramiento de variables y funciones (ej. limit_tokens_model, tipo_dato), mejorando la legibilidad y el formalismo siguiendo las guías de estilo de Python (PEP 8).
 
 ### Aprendizajes clave
 
@@ -183,14 +184,51 @@
 ### Objetivos de la semana
 
 - [x] Implementar manera de corregir el uso de GPU o CPU en el servidor que se vaya a utilizar
-- [ ] Iniciar la fase de arquitectura RAG: Configuración de la base de datos de vectores en PostgreSQL.
-- [ ] Investigar la integración de Redis para el almacenamiento de preguntas frecuentes (caché de respuestas).
+- [x] Iniciar la fase de arquitectura RAG: Configuración de la base de datos de vectores en PostgreSQL.
+- [x] Investigar la integración de Redis para el almacenamiento de preguntas frecuentes (caché de respuestas).
 
 ---
 
-## Sesión 4: Presentación y explicación del proyecto
+## Sesión 4: Implementación de ejemplo de RAG
 
-**Fecha:** [00/03/26]  
+**Fecha:** [19/05/26]  
+
+### Enfoque de la Sesión
+
+*Entender completamente la arquitectura RAG .*
+
+### Actividades realizadas
+
+1. **Aprendizaje RAG teorico:** Durante la sesión de esta semana se repasaron diversos conceptos para poder hacer practica la implementacion del RAG: *Transformers, BD vectorial, embeddings, Retrivel, Similitud del Coseno*, así como las ventajas de en nuestro caso utilizar la arquitectura RAG y no realizar un Fine-Tuning, tambien se vieron diversas técnicas avanzadas para la implementación de RAG que hacen más sencillo que nuestro modelo recupere información.
+2. **:** .
+3. **:** .
+
+### Aprendizajes clave
+
+- .
+- .
+
+### Desafíos y Bloqueos
+
+- **Error:** .
+- **Solución:** .
+
+### Reflexión Técnica
+
+- **Análisis:** 
+- **Decisión:**
+
+### Evidencias y recursos
+
+### Objetivos de la semana
+
+- [ ] .
+
+---
+
+## Sesión 5: Redis
+
+**Fecha:** [/05/26]  
 
 ### Enfoque de la Sesión
 
@@ -198,7 +236,7 @@
 
 ### Actividades realizadas
 
-1. **Normalización de Inferencia (Hardware Agnostic):** Se depuró el script Interactive_Model.py para detectar automáticamente el hardware disponible. Se implementó una lógica de tipos de datos donde se asigna float16 para GPU (CUDA) para mayor rapidez y float32 para CPU para evitar errores de precisión o valores nulos (NaNs).
+1. **:** .
 2. **:** .
 3. **:** .
 
