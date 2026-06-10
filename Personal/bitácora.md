@@ -189,7 +189,49 @@
 
 ---
 
-## Sesión 4: Implementación de ejemplo de RAG
+## Sesión 4: Virtualización de Entornos Institucionales y Fundamentos del Protocolo de Red
+
+**Fecha:** [02/06/26]  
+
+### Enfoque de la Sesión
+
+*Aprender a utilizar y manipular Docker desplegando el sitio web que se esta desarrollando en la institución, aprender a desplegar repositorios dentro del localhost y aprender como es que funciona el protocolo HTTP.*
+
+### Actividades realizadas
+
+1. **Investigación y Modelado de Contenedores:** Análisis teórico sobre la diferencia entre máquinas virtuales y contenedores Docker. Se profundizó en conceptos clave como el aislamiento a nivel de procesos mediante namespaces y cgroups , el ciclo de vida de las imágenes y la persistencia de datos.
+2. **Despliegue de la Infraestructura Web:** Orquestación e inicialización en el entorno de pruebas local `(localhost)` del sitio web institucional donde se alojará el chatbot. Se configuró el entorno adaptando los archivos de configuración de Docker y mapeando los puertos de red correspondientes.
+3. **Auditoría del Protocolo de Comunicación:** Análisis minucioso de la anatomía del mensaje HTTP (línea de solicitud/estado, cabeceras y cuerpos). Se estudiaron las propiedades de seguridad e idempotencia de los métodos, así como las clases de códigos de estado de respuesta del servidor.
+
+### Aprendizajes clave
+
+- Arquitectura de Virtualización Efímera: Comprensión del principio de portabilidad e inmutabilidad de Docker, asimilando que los contenedores son efímeros y que bases de datos como PostgreSQL requieren de `volúmenes` o bind mounts para la persistencia de la información.
+- Gobernanza del Protocolo Web: Capacidad para discriminar la semántica de los métodos HTTP en el backend, identificando peticiones seguras e idempotentes, frente a peticiones no idempotentes.
+- Control de Errores en Backend: Entendimiento del estándar de respuestas del servidor a través de los códigos de estado, diferenciando un error de sintaxis en el cliente de una falla interna en el procesamiento del servidor.
+
+### Desafíos y Bloqueos
+
+- **Error de Sincronización en Credenciales:** Conflictos de autenticación al levantar los contenedores debido a discrepancias entre las contraseñas declaradas en el archivo de configuración de Docker y las variables de entorno del archivo `.env`.
+- **Solución:** Se homologaron los secretos en ambos archivos, asegurando la consistencia de las variables antes de compilar el contenedor.
+- **Error de Codificación en Datos Semánticos:** Falla en la carga unificada de datos estructurados debido a que el archivo `sliders.json` no se encontraba codificado en formato **UTF-8**, lo que provocaba que el intérprete del servidor arrojara excepciones e impidiera la ejecución masiva de comandos de inserción.
+- **Solución:** Se recodificó el archivo JSON a formato de texto UTF-8 estándar, permitiendo una lectura limpia por parte del sistema.
+
+### Reflexión Técnica
+
+- **Análisis:** ¿Cómo afecta la volatilidad de los datos en el despliegue del chatbot institucional y qué método de persistencia es el adecuado?
+- **Decisión:** Se determinó que para la base de datos de vectores en PostgreSQL, la persistencia se manejará mediante Volúmenes de Docker (flag -v), ya que es la práctica recomendada para producción al aislar el almacenamiento dentro de un directorio seguro administrado por el motor de Docker. Para el código fuente de FastAPI en desarrollo, se utilizarán Bind Mounts, permitiendo reflejar cambios en tiempo real desde la PC local al contenedor sin reconstruir la imagen constantemente.
+
+### Evidencias y recursos
+- Documentación de estudio sobre virtualización.
+- Documentación de estudio sobre virtualización
+
+### Objetivos de la semana
+
+- [x] Desplegar el entorno local de la institución mediante contenedores aislados.  - [x] Resolver los conflictos de codificación de archivos y variables de entorno del servidor.
+- [ ] Iniciar el diseño del Dockerfile específico para empaquetar la API de FastAPI con las dependencias de PyTorch. 
+
+---
+## Sesión 5: Implementación de ejemplo de RAG
 
 **Fecha:** [19/05/26]  
 
@@ -226,7 +268,9 @@
 
 ---
 
-## Sesión 5: Redis
+
+
+## Sesión 6: Redis
 
 **Fecha:** [/05/26]  
 
