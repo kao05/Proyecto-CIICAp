@@ -231,6 +231,7 @@
 - [ ] Iniciar el diseño del Dockerfile específico para empaquetar la API de FastAPI con las dependencias de PyTorch. 
 
 ---
+
 ## Sesión 5: Implementación de ejemplo de RAG
 
 **Fecha:** [19/05/26]  
