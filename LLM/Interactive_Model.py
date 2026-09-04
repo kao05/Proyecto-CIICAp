@@ -48,7 +48,7 @@ model = Gemma3ForConditionalGeneration.from_pretrained(
 processor = AutoProcessor.from_pretrained(model_name, token=token)
 print("Modelo cargado exitosamente.")
 #Diccionario para salir del bucle
-Token_salida = ["adios", "adiós", "para", "hemos terminado", "stop", "salir"]
+Token_salida = ["stop", "salir"]
 
 # ================================
 # Interacción con el bot
@@ -57,7 +57,7 @@ Token_salida = ["adios", "adiós", "para", "hemos terminado", "stop", "salir"]
 print("=" * 50)
 print("¡Bienvenido al asistente virtual de la institución CIICAp")
 print("=" * 50)
-print("para salir, escribe 'adiós', 'para', 'hemos terminado', 'stop' o 'salir'.")
+print("para salir, escribe 'stop' o 'salir'.")
 print("=" * 50 + "\n")
 
 historial = []  # Para almacenar el historial de la conversación
